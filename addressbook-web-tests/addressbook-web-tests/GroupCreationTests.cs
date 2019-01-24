@@ -104,7 +104,7 @@ namespace WebAddressbookTests
         }
 
         private void OpenHomePage()
-        {  
+        {
             driver.Navigate().GoToUrl(baseURL);
         }
 
@@ -155,5 +155,8 @@ namespace WebAddressbookTests
                 acceptNextAlert = true;
             }
         }
+
     }
+
 }
+
