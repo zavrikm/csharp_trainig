@@ -16,13 +16,13 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
-            OpenHomePage();
-            Login(new AccountData("admin", "secret"));
+            navigationHelper.OpenHomePage();
+            loginHelper.Login(new AccountData("admin", "secret"));
             OpenDashboard();
-            ChooseContactInTable(1);
+            contactHelper.ChooseContactInTable(1);
             acceptNextAlert = true;
-            ClickDeleteContactButton();
-            ConfirmDeletindContactToAlert();
+            contactHelper.ClickDeleteContactButton();
+            contactHelper.ConfirmDeletindContactToAlert();
             Logout();
         }
 
