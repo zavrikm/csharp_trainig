@@ -4,33 +4,24 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 
-
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupCreationTests : TestBase
-
+    public class GroupRemovalTests : TestBase
     {
 
 
         [Test]
-        public void GroupCreationTest()
+        public void GroupRemovalTest()
         {
             OpenHomePage();
             Login(new AccountData("admin", "secret"));
             GoToGroupsPage();
-            InitGroupCreation();
-            GroupData group = new GroupData("aaa");
-            group.Header = "ddd";
-            group.Footer = "fff";
-            FillGroupForm(group);
-            SubmitGroupCreation();
-            ReturnToGroupPage();
+            SelectGroup(1);
+            RemoveGroup();
+            ReturnToGroupsPage();
             Logout();
         }
 
-
     }
-
 }
-
