@@ -26,7 +26,7 @@ namespace WebAddressbookTests
             groupHelper.FillGroupForm(group);
             groupHelper.SubmitGroupCreation();
             groupHelper.ReturnToGroupPage();
-            Logout();
+            loginHelper.Logout();
         }
 
 

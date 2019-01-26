@@ -37,7 +37,7 @@ namespace WebAddressbookTests
 
             contactHelper.FillContactCreationForm(contact);
             contactHelper.SubmitContactCreation();
-            Logout();
+            loginHelper.Logout();
         }
 
  

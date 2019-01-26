@@ -20,7 +20,7 @@ namespace WebAddressbookTests
             groupHelper.SelectGroup(1);
             groupHelper.RemoveGroup();
             groupHelper.ReturnToGroupsPage();
-            Logout();
+            loginHelper.Logout();
         }
 
     }

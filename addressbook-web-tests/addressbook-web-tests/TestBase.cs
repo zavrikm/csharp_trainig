@@ -53,83 +53,56 @@ namespace WebAddressbookTests
 
         // ************************ help methods *******************************************
 
-        #region PageMethods
-
-
-
-
-
-
-
-        protected void Logout()
-        {
-            driver.FindElement(By.LinkText("Logout")).Click();
-        }
-
-        protected void OpenDashboard()
-        {
-            driver.FindElement(By.LinkText("home")).Click();
-        }
-
-        #endregion
-
-
-
-        #region Contacts
-
-
-
-        #endregion
 
         #region Alerts
 
-        //protected string CloseAlertAndGetItsText()
+        ////protected string CloseAlertAndGetItsText()
+        ////{
+        ////    try
+        ////    {
+        ////        IAlert alert = driver.SwitchTo().Alert();
+        ////        string alertText = alert.Text;
+        ////        if (acceptNextAlert)
+        ////        {
+        ////            alert.Accept();
+        ////        }
+        ////        else
+        ////        {
+        ////            alert.Dismiss();
+        ////        }
+        ////        return alertText;
+        ////    }
+        ////    finally
+        ////    {
+        ////        acceptNextAlert = true;
+        ////    }
+        ////}
+
+        //protected bool IsAlertPresent()
         //{
         //    try
         //    {
-        //        IAlert alert = driver.SwitchTo().Alert();
-        //        string alertText = alert.Text;
-        //        if (acceptNextAlert)
-        //        {
-        //            alert.Accept();
-        //        }
-        //        else
-        //        {
-        //            alert.Dismiss();
-        //        }
-        //        return alertText;
+        //        driver.SwitchTo().Alert();
+        //        return true;
         //    }
-        //    finally
+        //    catch (NoAlertPresentException)
         //    {
-        //        acceptNextAlert = true;
+        //        return false;
         //    }
         //}
 
-        protected bool IsAlertPresent()
-        {
-            try
-            {
-                driver.SwitchTo().Alert();
-                return true;
-            }
-            catch (NoAlertPresentException)
-            {
-                return false;
-            }
-        }
-
-        protected bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return true;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
+        //protected bool IsElementPresent(By by)
+        //{
+        //    try
+        //    {
+        //        driver.FindElement(by);
+        //        return true;
+        //    }
+        //    catch (NoSuchElementException)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         #endregion
 

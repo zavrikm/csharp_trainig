@@ -9,14 +9,13 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-    public class ContactHelper
+    public class ContactHelper : HelperBase
     {
-        private IWebDriver driver;
+       
         private bool acceptNextAlert = true;
 
-        public ContactHelper(IWebDriver driver, bool acceptNextAlert)
+        public ContactHelper(IWebDriver driver, bool acceptNextAlert) : base(driver)
         {
-            this.driver = driver;
             this.acceptNextAlert = acceptNextAlert;
         }
 
@@ -76,6 +75,11 @@ namespace WebAddressbookTests
         public void SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+        }
+
+        public void OpenDashboard()
+        {
+            driver.FindElement(By.LinkText("home")).Click();
         }
 
         public void ChooseContactInTable(int index)

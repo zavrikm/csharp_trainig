@@ -18,12 +18,12 @@ namespace WebAddressbookTests
         {
             navigationHelper.OpenHomePage();
             loginHelper.Login(new AccountData("admin", "secret"));
-            OpenDashboard();
+            contactHelper.OpenDashboard();
             contactHelper.ChooseContactInTable(1);
             acceptNextAlert = true;
             contactHelper.ClickDeleteContactButton();
             contactHelper.ConfirmDeletindContactToAlert();
-            Logout();
+            loginHelper.Logout();
         }
 
 
