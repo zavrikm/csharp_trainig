@@ -11,12 +11,12 @@ namespace WebAddressbookTests
 {
     public class ContactHelper : HelperBase
     {
-       
-        private bool acceptNextAlert = true;
 
-        public ContactHelper(IWebDriver driver, bool acceptNextAlert) : base(driver)
+        //private bool acceptNextAlert = true;
+
+        public ContactHelper(IWebDriver driver) : base(driver)
         {
-            this.acceptNextAlert = acceptNextAlert;
+          //  this.acceptNextAlert = acceptNextAlert;
         }
 
         public void GoToContactCreationPage()
@@ -98,27 +98,30 @@ namespace WebAddressbookTests
             Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
         }
 
-        public string CloseAlertAndGetItsText()
-        {
-            try
-            {
-                IAlert alert = driver.SwitchTo().Alert();
-                string alertText = alert.Text;
-                if (acceptNextAlert)
-                {
-                    alert.Accept();
-                }
-                else
-                {
-                    alert.Dismiss();
-                }
-                return alertText;
-            }
-            finally
-            {
-                acceptNextAlert = true;
-            }
-        }
+ 
+
+
+        //public string CloseAlertAndGetItsText()
+        //{
+        //    try
+        //    {
+        //        IAlert alert = driver.SwitchTo().Alert();
+        //        string alertText = alert.Text;
+        //        if (acceptNextAlert)
+        //        {
+        //            alert.Accept();
+        //        }
+        //        else
+        //        {
+        //            alert.Dismiss();
+        //        }
+        //        return alertText;
+        //    }
+        //    finally
+        //    {
+        //        acceptNextAlert = true;
+        //    }
+        //}
 
     }
 }

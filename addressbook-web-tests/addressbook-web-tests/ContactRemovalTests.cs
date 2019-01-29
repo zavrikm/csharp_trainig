@@ -20,12 +20,11 @@ namespace WebAddressbookTests
             loginHelper.Login(new AccountData("admin", "secret"));
             contactHelper.OpenDashboard();
             contactHelper.ChooseContactInTable(1);
-            acceptNextAlert = true;
+            contactHelper.LookForAlert(true);
             contactHelper.ClickDeleteContactButton();
             contactHelper.ConfirmDeletindContactToAlert();
             loginHelper.Logout();
         }
-
 
     }
 }

@@ -16,12 +16,21 @@ namespace WebAddressbookTests
         protected IWebDriver driver;
         protected StringBuilder verificationErrors;
         protected string baseURL;
-        protected bool acceptNextAlert = true;
+       // public bool acceptNextAlert = true; //!!! Make property!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         protected LoginHelper loginHelper;  // links to helpers
         protected NavigationHelper navigationHelper;
         protected GroupHelper groupHelper;
         protected ContactHelper contactHelper;
+
+
+        //****************************************
+
+
+
+        //****************************************
+
+
 
         [SetUp]
         public void SetupTest()
@@ -33,7 +42,7 @@ namespace WebAddressbookTests
             loginHelper = new LoginHelper(driver);
             navigationHelper = new NavigationHelper(driver, baseURL);
             groupHelper = new GroupHelper(driver);
-            contactHelper = new ContactHelper(driver, acceptNextAlert);
+            contactHelper = new ContactHelper(driver);
         }
 
         [TearDown]
@@ -78,7 +87,7 @@ namespace WebAddressbookTests
         ////    }
         ////}
 
-        //protected bool IsAlertPresent()
+        //public bool IsAlertPresent()
         //{
         //    try
         //    {
@@ -91,7 +100,7 @@ namespace WebAddressbookTests
         //    }
         //}
 
-        //protected bool IsElementPresent(By by)
+        //public bool IsElementPresent(By by)
         //{
         //    try
         //    {
