@@ -12,11 +12,11 @@ namespace WebAddressbookTests
     public class ContactHelper : HelperBase
     {
 
-        //private bool acceptNextAlert = true;
+        
 
         public ContactHelper(IWebDriver driver) : base(driver)
         {
-          //  this.acceptNextAlert = acceptNextAlert;
+          
         }
 
         public void GoToContactCreationPage()

@@ -14,9 +14,9 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
-            navigationHelper.OpenHomePage();
-            loginHelper.Login(new AccountData("admin", "secret"));
-            contactHelper.GoToContactCreationPage();
+            app.Navigator.OpenHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contacts.GoToContactCreationPage();
 
             ContactData contact = new ContactData();
             contact.FirstName = "Vivian";
@@ -35,9 +35,9 @@ namespace WebAddressbookTests
             contact.BYear = "1982";
             contact.Address2 = "Secondary address";
 
-            contactHelper.FillContactCreationForm(contact);
-            contactHelper.SubmitContactCreation();
-            loginHelper.Logout();
+            app.Contacts.FillContactCreationForm(contact);
+            app.Contacts.SubmitContactCreation();
+            app.Auth.Logout();
         }
 
  
