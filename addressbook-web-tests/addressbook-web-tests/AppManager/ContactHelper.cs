@@ -14,18 +14,28 @@ namespace WebAddressbookTests
 
         
 
-        public ContactHelper(IWebDriver driver) : base(driver)
+        public ContactHelper(ApplicationManager manager) : base(manager)
         {
           
         }
 
-        public void GoToContactCreationPage()
+        public ContactHelper Create(ContactData contact)
+        {
+            GoToContactCreationPage();
+            FillContactCreationForm(contact);
+            SubmitContactCreation();
+
+            return this;
+        }
+
+        public ContactHelper GoToContactCreationPage()
         {
             driver.FindElement(By.LinkText("add new")).Click();
+            return this;
         }
 
 
-        public void FillContactCreationForm(ContactData contact)
+        public ContactHelper FillContactCreationForm(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -70,32 +80,38 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("address2")).Click();
             driver.FindElement(By.Name("address2")).Clear();
             driver.FindElement(By.Name("address2")).SendKeys(contact.Address2);
+            return this;
         }
 
-        public void SubmitContactCreation()
+        public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            return this;
         }
 
-        public void OpenDashboard()
+        public ContactHelper OpenDashboard()
         {
             driver.FindElement(By.LinkText("home")).Click();
+            return this;
         }
 
-        public void ChooseContactInTable(int index)
+        public ContactHelper ChooseContactInTable(int index)
         {
             index = index + 1;
             driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + index + "]/td/input")).Click();
+            return this;
         }
 
-        public void ClickDeleteContactButton()
+        public ContactHelper ClickDeleteContactButton()
         {
             driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            return this;
         }
 
-        public void ConfirmDeletindContactToAlert()
+        public ContactHelper ConfirmDeletindContactToAlert()
         {
             Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
+            return this;
         }
 
  

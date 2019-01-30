@@ -13,10 +13,12 @@ namespace WebAddressbookTests
     {
         protected IWebDriver driver;
         protected bool acceptNextAlert;
+        protected ApplicationManager manager;
 
-        public HelperBase(IWebDriver driver)
+        public HelperBase(ApplicationManager manager)
         {
-            this.driver = driver;
+            this.manager = manager;
+            driver = manager.Driver;
             this.acceptNextAlert = true;
         }
 
