@@ -14,13 +14,7 @@ namespace WebAddressbookTests
         [Test]
         public void ContactRemovalTest()
         {
-            app.Contacts
-                .OpenDashboard()
-                .ChooseContactInTable(1);
-            app.Contacts.LookForAlert(true);
-            app.Contacts
-                .ClickDeleteContactButton()
-                .ConfirmDeletindContactToAlert();
+            app.Contacts.Remove(1);
         }
 
     }

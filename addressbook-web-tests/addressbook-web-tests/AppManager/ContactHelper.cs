@@ -28,6 +28,19 @@ namespace WebAddressbookTests
             return this;
         }
 
+
+        public ContactHelper Remove(int p)
+        {
+            OpenDashboard();
+            ChooseContactInTable(p);
+            LookForAlert(true);
+            ClickDeleteContactButton();
+            ConfirmDeletindContactToAlert();
+
+            return this;
+        }
+
+
         public ContactHelper GoToContactCreationPage()
         {
             driver.FindElement(By.LinkText("add new")).Click();
