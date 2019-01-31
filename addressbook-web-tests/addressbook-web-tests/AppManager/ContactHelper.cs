@@ -28,6 +28,16 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public ContactHelper Modify(int p, ContactData newData)
+        {
+            OpenDashboard();
+            ClickEditPencilButtonInString(p);
+            FillContactCreationForm(newData);
+            SubmitContactMidification();
+            OpenDashboard();
+
+            return this;
+        }
 
         public ContactHelper Remove(int p)
         {
@@ -39,6 +49,8 @@ namespace WebAddressbookTests
 
             return this;
         }
+
+
 
 
         public ContactHelper GoToContactCreationPage()
@@ -127,30 +139,19 @@ namespace WebAddressbookTests
             return this;
         }
 
- 
+        public ContactHelper ClickEditPencilButtonInString(int index)
+        {
+            index = index + 1;
+            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + index + "]//img[@title='Edit']")).Click();
+            return this;
+        }
 
+        public ContactHelper SubmitContactMidification()
+        {
+            driver.FindElement(By.Name("update")).Click();
+            return this;
+        }
 
-        //public string CloseAlertAndGetItsText()
-        //{
-        //    try
-        //    {
-        //        IAlert alert = driver.SwitchTo().Alert();
-        //        string alertText = alert.Text;
-        //        if (acceptNextAlert)
-        //        {
-        //            alert.Accept();
-        //        }
-        //        else
-        //        {
-        //            alert.Dismiss();
-        //        }
-        //        return alertText;
-        //    }
-        //    finally
-        //    {
-        //        acceptNextAlert = true;
-        //    }
-        //}
 
     }
 }
