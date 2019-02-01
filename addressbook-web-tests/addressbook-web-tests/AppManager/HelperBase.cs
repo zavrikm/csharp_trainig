@@ -24,6 +24,28 @@ namespace WebAddressbookTests
 
 
 
+        public void Type(By locator, string text)
+        {
+            if (text != null)
+            {
+                driver.FindElement(locator).Click();
+                driver.FindElement(locator).Clear();
+                driver.FindElement(locator).SendKeys(text);
+            }
+
+        }
+
+        public void SelectBytextInDropDown(By locator, string text)
+        {
+            if (text != null)
+            {
+                driver.FindElement(locator).Click();
+                new SelectElement(driver.FindElement(locator)).SelectByText(text);
+            }
+
+        }
+
+
         public string CloseAlertAndGetItsText()
         {
             try
