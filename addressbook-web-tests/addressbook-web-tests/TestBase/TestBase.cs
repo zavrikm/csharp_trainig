@@ -10,15 +10,14 @@ namespace WebAddressbookTests
     public class TestBase
     {
 
-        protected ApplicationManager app; //field for link to Application Manager class
+        protected ApplicationManager app; //field for link to Application Manager instance
 
 
 
         [SetUp]
-        public void SetupTest()
+        public void SetupApplicationManager()
         {
             app = ApplicationManager.GetInstance();
-
         }
 
 

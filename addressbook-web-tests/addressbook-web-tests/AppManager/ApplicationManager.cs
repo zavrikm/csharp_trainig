@@ -55,7 +55,9 @@ namespace WebAddressbookTests
         {
             if (!app.IsValueCreated)
             {
-                app.Value = new ApplicationManager();
+                ApplicationManager newInstance = new ApplicationManager();
+                newInstance.Navigator.OpenHomePage();
+                app.Value = newInstance;
             }
             return app.Value;
         }
@@ -109,18 +111,6 @@ namespace WebAddressbookTests
             }
         }
 
-
-        //public void Stop() // Stop ewbdriver on ending the testing
-        //{
-        //    //try
-        //    //{
-        //    //    driver.Quit();
-        //    //}
-        //    //catch (Exception)
-        //    //{
-        //    //    // Ignore errors if unable to close the browser
-        //    //}
-        //}
 
     }
 }
