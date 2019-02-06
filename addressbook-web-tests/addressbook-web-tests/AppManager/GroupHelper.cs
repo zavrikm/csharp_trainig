@@ -45,12 +45,25 @@ namespace WebAddressbookTests
         public GroupHelper Remove(int p)
         {
             manager.Navigator.GoToGroupsPage();
+
+            if (!AGroupExists(p))
+            {
+                GroupData aGroup = new GroupData("qwe");
+                Create(aGroup);
+            }
+
             SelectGroup(p);
             RemoveGroup();
             ReturnToGroupsPage();
 
 
             return this;
+        }
+
+
+        public bool AGroupExists(int index)
+        {
+            return IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]"));
         }
 
  
