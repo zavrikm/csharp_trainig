@@ -42,6 +42,15 @@ namespace WebAddressbookTests
         public ContactHelper Remove(int p)
         {
             OpenDashboard();
+
+            if (!AContactExists())
+            {
+                ContactData aContact = new ContactData();
+                aContact.BMonth = "-";
+                aContact.AMonth = "-";
+                Create(aContact);
+            }
+
             ChooseContactInTable(p);
             LookForAlert(true);
             ClickDeleteContactButton();
@@ -50,7 +59,10 @@ namespace WebAddressbookTests
             return this;
         }
 
-
+        public bool AContactExists()
+        {
+            return IsElementPresent(By.XPath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+        }
 
 
         public ContactHelper GoToContactCreationPage()

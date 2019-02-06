@@ -46,7 +46,7 @@ namespace WebAddressbookTests
         {
             manager.Navigator.GoToGroupsPage();
 
-            if (!AGroupExists(p))
+            if (!AGroupExists())
             {
                 GroupData aGroup = new GroupData("qwe");
                 Create(aGroup);
@@ -61,9 +61,9 @@ namespace WebAddressbookTests
         }
 
 
-        public bool AGroupExists(int index)
+        public bool AGroupExists()
         {
-            return IsElementPresent(By.XPath("(//input[@name='selected[]'])[" + index + "]"));
+            return IsElementPresent(By.XPath("(//input[@name='selected[]'])[1]"));
         }
 
  
