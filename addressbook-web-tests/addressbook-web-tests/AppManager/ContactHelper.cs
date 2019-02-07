@@ -30,26 +30,23 @@ namespace WebAddressbookTests
 
         public ContactHelper Modify(int p, ContactData newData)
         {
-            OpenDashboard();
+            manager.Navigator.OpenDashboard();
+
+            CreateIfNoOneContactExists();
+
             ClickEditPencilButtonInString(p);
             FillContactCreationForm(newData);
             SubmitContactMidification();
-            OpenDashboard();
+            manager.Navigator.OpenDashboard();
 
             return this;
         }
 
         public ContactHelper Remove(int p)
         {
-            OpenDashboard();
+            manager.Navigator.OpenDashboard();
 
-            if (!AContactExists())
-            {
-                ContactData aContact = new ContactData();
-                aContact.BMonth = "-";
-                aContact.AMonth = "-";
-                Create(aContact);
-            }
+            CreateIfNoOneContactExists();
 
             ChooseContactInTable(p);
             LookForAlert(true);
@@ -58,6 +55,8 @@ namespace WebAddressbookTests
 
             return this;
         }
+
+
 
         public bool AContactExists()
         {
@@ -103,12 +102,6 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public ContactHelper OpenDashboard()
-        {
-            driver.FindElement(By.LinkText("home")).Click();
-            return this;
-        }
-
         public ContactHelper ChooseContactInTable(int index)
         {
             index = index + 1;
@@ -141,6 +134,15 @@ namespace WebAddressbookTests
             return this;
         }
 
-
+        public void CreateIfNoOneContactExists() // for Remove and Modify Methods - creates a contact if there is no any
+        {
+            if (!AContactExists())
+            {
+                ContactData aContact = new ContactData();
+                aContact.BMonth = "-";
+                aContact.AMonth = "-";
+                Create(aContact);
+            }
+        }
     }
 }
