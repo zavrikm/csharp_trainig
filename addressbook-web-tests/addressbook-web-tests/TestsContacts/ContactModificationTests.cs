@@ -13,7 +13,7 @@ namespace WebAddressbookTests
         [Test]
         public void ContactModificationTest()
         {
-
+            
 
             ContactData contact = new ContactData();
             contact.FirstName = "Antony";
@@ -32,7 +32,9 @@ namespace WebAddressbookTests
             contact.BYear = "1982";
             contact.Address2 = "Secondary address";
 
-            app.Contacts.Modify(1,contact);
+            app.Contacts
+                .CreateIfNoOneContactExists()
+                .Modify(1,contact);
 
         }
 

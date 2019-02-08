@@ -32,8 +32,6 @@ namespace WebAddressbookTests
         {
             manager.Navigator.OpenDashboard();
 
-            CreateIfNoOneContactExists();
-
             ClickEditPencilButtonInString(p);
             FillContactCreationForm(newData);
             SubmitContactMidification();
@@ -45,8 +43,6 @@ namespace WebAddressbookTests
         public ContactHelper Remove(int p)
         {
             manager.Navigator.OpenDashboard();
-
-            CreateIfNoOneContactExists();
 
             ChooseContactInTable(p);
             LookForAlert(true);
@@ -134,7 +130,7 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public void CreateIfNoOneContactExists() // for Remove and Modify Methods - creates a contact if there is no any
+        public ContactHelper CreateIfNoOneContactExists() // for Remove and Modify Methods - creates a contact if there is no any
         {
             if (!AContactExists())
             {
@@ -143,6 +139,8 @@ namespace WebAddressbookTests
                 aContact.AMonth = "-";
                 Create(aContact);
             }
+
+            return this;
         }
     }
 }

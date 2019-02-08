@@ -34,8 +34,6 @@ namespace WebAddressbookTests
         {
             manager.Navigator.GoToGroupsPage();
 
-            CreateIfNoOneGroupExists();
-
             SelectGroup(p);
             InitGroupModification();
             FillGroupForm(newData);
@@ -49,9 +47,7 @@ namespace WebAddressbookTests
 
         public GroupHelper Remove(int p)
         {
-            manager.Navigator.GoToGroupsPage();
-
-            CreateIfNoOneGroupExists(); 
+            manager.Navigator.GoToGroupsPage(); 
 
             SelectGroup(p);
             RemoveGroup();
@@ -81,16 +77,6 @@ namespace WebAddressbookTests
             return this;
         }
 
-        //public void Type(By locator, string text)
-        //{
-        //    if (text != null) 
-        //    {
-        //        driver.FindElement(locator).Click();
-        //        driver.FindElement(locator).Clear();
-        //        driver.FindElement(locator).SendKeys(text);
-        //    }
-
-        //}
 
         public GroupHelper SubmitGroupCreation()
         {
@@ -135,13 +121,15 @@ namespace WebAddressbookTests
         }
 
 
-        public void CreateIfNoOneGroupExists() // for Remove and Modify Methods - creates a group if there is no any
+        public GroupHelper CreateIfNoOneGroupExists() // for Remove and Modify Methods - creates a group if there is no any
         {
             if (!IsElementPresent(By.XPath("(//input[@name='selected[]'])[1]")))
             {
                 GroupData aGroup = new GroupData("qwe");
                 Create(aGroup);
             }
+
+            return this;
         }
 
 
