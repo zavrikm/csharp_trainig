@@ -20,6 +20,8 @@ namespace WebAddressbookTests
           
         }
 
+
+
         public ContactHelper Create(ContactData contact)
         {
             GoToContactCreationPage();
@@ -101,8 +103,9 @@ namespace WebAddressbookTests
 
         public ContactHelper ChooseContactInTable(int index)
         {
-            index = index + 1;
-            driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + index + "]/td/input")).Click();
+            //  index = index + 1;
+               driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + (index+2) + "]/td/input")).Click();
+  //          driver.FindElement(By.XPath("(//tr/td/input)[" + (index+1) + "]"));
             return this;
         }
 
@@ -158,6 +161,7 @@ namespace WebAddressbookTests
                 contacts.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
                 contacts[counter].FirstName = element.Text;
                 contacts[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter+1) + "]")).Text;
+           //     Console.WriteLine(counter + ": " + contacts[counter].FirstName + " " + contacts[counter].LastName);
                 counter++;
             }
 
