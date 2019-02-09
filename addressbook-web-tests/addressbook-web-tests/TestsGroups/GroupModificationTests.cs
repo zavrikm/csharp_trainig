@@ -22,7 +22,7 @@ namespace WebAddressbookTests
 
             app.Groups
                 .CreateIfNoOneGroupExists()
-                .Modify(1,newData);
+                .Modify(0,newData);
         }
 
     }
