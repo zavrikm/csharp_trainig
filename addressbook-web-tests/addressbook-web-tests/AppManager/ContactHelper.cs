@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Collections.Generic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -142,5 +143,26 @@ namespace WebAddressbookTests
 
             return this;
         }
+
+        public List<ContactData> GetContactsList()
+        {
+            List<ContactData> contacts = new List<ContactData>();
+
+            manager.Navigator.OpenDashboard();
+            ICollection<IWebElement> firstNames = driver.FindElements(By.XPath("//tr/td[3]"));
+
+            int counter = 0;
+
+            foreach (IWebElement element in firstNames)
+            {
+                contacts.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
+                contacts[counter].FirstName = element.Text;
+                contacts[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter+1) + "]")).Text;
+                counter++;
+            }
+
+            return contacts;
+        }
+
     }
 }

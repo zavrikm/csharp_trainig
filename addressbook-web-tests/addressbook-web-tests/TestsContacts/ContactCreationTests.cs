@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 
@@ -33,8 +34,13 @@ namespace WebAddressbookTests
             contact.BYear = "1982";
             contact.Address2 = "Secondary address";
 
+            List<ContactData> oldContacts = app.Contacts.GetContactsList();
+
             app.Contacts.Create(contact);
 
+            List<ContactData> newContacts = app.Contacts.GetContactsList();
+
+            Assert.AreEqual(oldContacts.Count + 1, newContacts.Count);
         }
 
  
