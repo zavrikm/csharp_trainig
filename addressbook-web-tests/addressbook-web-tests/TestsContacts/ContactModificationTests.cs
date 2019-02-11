@@ -32,10 +32,21 @@ namespace WebAddressbookTests
             contact.BYear = "1982";
             contact.Address2 = "Secondary address";
 
+            List<ContactData> oldContacts = app.Contacts.GetContactsList();
+
             app.Contacts
                 .CreateIfNoOneContactExists()
-                .Modify(1,contact);
+                .Modify(0,contact);
 
+            List<ContactData> newContacts = app.Contacts.GetContactsList();
+
+            oldContacts[0].FirstName = contact.FirstName;
+            oldContacts[0].LastName = contact.LastName;
+
+            oldContacts.Sort();
+            newContacts.Sort();
+
+            Assert.AreEqual(oldContacts, newContacts);
         }
 
 

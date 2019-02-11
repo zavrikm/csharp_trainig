@@ -123,7 +123,7 @@ namespace WebAddressbookTests
 
         public ContactHelper ClickEditPencilButtonInString(int index)
         {
-            index = index + 1;
+            index = index + 2;
             driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + index + "]//img[@title='Edit']")).Click();
             return this;
         }
