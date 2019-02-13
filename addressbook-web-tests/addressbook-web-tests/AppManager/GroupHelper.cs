@@ -82,6 +82,7 @@ namespace WebAddressbookTests
         public GroupHelper SubmitGroupCreation()
         {
             driver.FindElement(By.Name("submit")).Click();
+            groupCaсhe = null;
             return this;
         }
 
@@ -100,6 +101,7 @@ namespace WebAddressbookTests
         public GroupHelper RemoveGroup()
         {
             driver.FindElement(By.Name("delete")).Click();
+            groupCaсhe = null;
             return this;
         }
 
@@ -118,6 +120,7 @@ namespace WebAddressbookTests
         public GroupHelper SubmitGroupModification() 
         {
             driver.FindElement(By.Name("update")).Click();
+            groupCaсhe = null;
             return this;
         }
 
@@ -133,18 +136,33 @@ namespace WebAddressbookTests
             return this;
         }
 
+        private List<GroupData> groupCaсhe = null; //для хранения запомненного сохраненного списка групп
+
         public List<GroupData> GetGroupList()
         {
-            List<GroupData> groups = new List<GroupData>();
-
-            manager.Navigator.GoToGroupsPage();
-            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
-            foreach (IWebElement element in elements)
+            if (groupCaсhe == null)
             {
-                groups.Add(new GroupData(element.Text)); //добавляем в лист групп по новому создаваемому объекту группы
+                groupCaсhe = new List<GroupData>();
+
+                manager.Navigator.GoToGroupsPage();
+                ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
+                foreach (IWebElement element in elements)
+                {
+                    groupCaсhe.Add(new GroupData(element.Text)); //добавляем в лист групп по новому создаваемому объекту группы
+                }
+
             }
 
-            return groups;
+            //List<GroupData> groups = new List<GroupData>();
+
+            //manager.Navigator.GoToGroupsPage();
+            //ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
+            //foreach (IWebElement element in elements)
+            //{
+            //    groups.Add(new GroupData(element.Text)); //добавляем в лист групп по новому создаваемому объекту группы
+            //}
+
+            return new List<GroupData>(groupCaсhe);
         }
 
     }
