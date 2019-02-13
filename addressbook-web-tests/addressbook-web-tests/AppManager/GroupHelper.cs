@@ -165,5 +165,10 @@ namespace WebAddressbookTests
             return new List<GroupData>(groupCaсhe);
         }
 
+        public int GetGroupCount()
+        {
+            return driver.FindElements(By.CssSelector("span.group")).Count;
+        }
+
     }
 }

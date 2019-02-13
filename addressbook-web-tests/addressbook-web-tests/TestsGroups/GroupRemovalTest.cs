@@ -21,6 +21,8 @@ namespace WebAddressbookTests
                 .CreateIfNoOneGroupExists()
                 .Remove(0);
 
+            Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount()); //если количество групп не совпало - тест упадет здесь
+
             List<GroupData> newGroups = app.Groups.GetGroupList();
 
             oldGroups.RemoveAt(0);
