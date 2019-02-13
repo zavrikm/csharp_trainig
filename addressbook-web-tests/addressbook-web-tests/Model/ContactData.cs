@@ -67,14 +67,20 @@ namespace WebAddressbookTests
             return "FirstName LastName= " + FirstName + " " + LastName;
         }
 
-        public int CompareTo(ContactData other)
+        public int CompareTo(ContactData other) 
         {
             if (Object.ReferenceEquals(other, null))
             {
                 return 1;
             }
 
-            return this.ToString().CompareTo(other.ToString()); 
+            if (LastName.CompareTo(other.LastName) == 0)
+            {
+                return FirstName.CompareTo(other.FirstName);
+            }
+
+            return LastName.CompareTo(other.LastName);
+
         }
 
 
