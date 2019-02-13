@@ -51,6 +51,7 @@ namespace WebAddressbookTests
             LookForAlert(true);
             ClickDeleteContactButton();
             ConfirmDeletindContactToAlert();
+            contactCache = null;
 
             return this;
         }
@@ -98,6 +99,7 @@ namespace WebAddressbookTests
         public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -131,6 +133,7 @@ namespace WebAddressbookTests
         public ContactHelper SubmitContactMidification()
         {
             driver.FindElement(By.Name("update")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -147,25 +150,47 @@ namespace WebAddressbookTests
             return this;
         }
 
+        private List<ContactData> contactCache = null; //поле для кеширования списка контактов
+
         public List<ContactData> GetContactsList()
         {
-            List<ContactData> contacts = new List<ContactData>();
 
-            manager.Navigator.OpenDashboard();
-            ICollection<IWebElement> firstNames = driver.FindElements(By.XPath("//tr/td[3]"));
-
-            int counter = 0;
-
-            foreach (IWebElement element in firstNames)
+            if (contactCache == null)
             {
-                contacts.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
-                contacts[counter].FirstName = element.Text;
-                contacts[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter+1) + "]")).Text;
-           //     Console.WriteLine(counter + ": " + contacts[counter].FirstName + " " + contacts[counter].LastName);
-                counter++;
+                contactCache = new List<ContactData>();
+
+                manager.Navigator.OpenDashboard();
+                ICollection<IWebElement> firstNames = driver.FindElements(By.XPath("//tr/td[3]"));
+
+                int counter = 0;
+
+                foreach (IWebElement element in firstNames)
+                {
+                    contactCache.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
+                    contactCache[counter].FirstName = element.Text;
+                    contactCache[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter + 1) + "]")).Text;
+                    counter++;
+                }
+
             }
 
-            return contacts;
+            //List<ContactData> contacts = new List<ContactData>();
+
+            //manager.Navigator.OpenDashboard();
+            //ICollection<IWebElement> firstNames = driver.FindElements(By.XPath("//tr/td[3]"));
+
+            //int counter = 0;
+
+            //foreach (IWebElement element in firstNames)
+            //{
+            //    contacts.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
+            //    contacts[counter].FirstName = element.Text;
+            //    contacts[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter + 1) + "]")).Text;
+            //    //     Console.WriteLine(counter + ": " + contacts[counter].FirstName + " " + contacts[counter].LastName);
+            //    counter++;
+            //}
+
+            return new List<ContactData>(contactCache);
         }
 
     }

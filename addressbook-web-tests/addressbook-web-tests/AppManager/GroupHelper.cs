@@ -136,7 +136,7 @@ namespace WebAddressbookTests
             return this;
         }
 
-        private List<GroupData> groupCaсhe = null; //для хранения запомненного сохраненного списка групп
+        private List<GroupData> groupCaсhe = null; //поле для хранения кеширования списка групп
 
         public List<GroupData> GetGroupList()
         {
