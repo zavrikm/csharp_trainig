@@ -38,6 +38,8 @@ namespace WebAddressbookTests
                 .CreateIfNoOneContactExists()
                 .Modify(0,contact);
 
+            Assert.AreEqual(oldContacts.Count, app.Contacts.GetContactCount());
+
             List<ContactData> newContacts = app.Contacts.GetContactsList();
 
             oldContacts[0].FirstName = contact.FirstName;

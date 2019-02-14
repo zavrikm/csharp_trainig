@@ -38,13 +38,19 @@ namespace WebAddressbookTests
 
             app.Contacts.Create(contact);
 
+
+           
+
+
+            Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount(), "1-я проверка");
+
             List<ContactData> newContacts = app.Contacts.GetContactsList();
 
             oldContacts.Add(contact);
             oldContacts.Sort();
             newContacts.Sort();
 
-            Assert.AreEqual(oldContacts, newContacts);
+            Assert.AreEqual(oldContacts, newContacts, "2-я проверка");
         }
 
  

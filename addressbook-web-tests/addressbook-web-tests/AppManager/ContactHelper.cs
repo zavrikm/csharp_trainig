@@ -155,7 +155,7 @@ namespace WebAddressbookTests
         public List<ContactData> GetContactsList()
         {
 
-            if (contactCache == null) //1-я попытка
+            /*if (contactCache == null)*/ //1-я попытка
                                       //{
                                       //    contactCache = new List<ContactData>();
 
@@ -202,6 +202,18 @@ namespace WebAddressbookTests
 
 
             return new List<ContactData>(contactCache);
+        }
+
+
+        public int GetContactCount() // считает количество контактов на странице
+        {
+            var timeout = TimeSpan.FromSeconds(10);
+
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            var element = wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath("//tr[@name='entry']")));
+
+            return element.Count;
+
         }
 
     }
