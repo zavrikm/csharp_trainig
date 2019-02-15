@@ -148,19 +148,14 @@ namespace WebAddressbookTests
                 ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
                 foreach (IWebElement element in elements)
                 {
-                    groupCaсhe.Add(new GroupData(element.Text)); //добавляем в лист групп по новому создаваемому объекту группы
+                    
+                    groupCaсhe.Add(new GroupData(element.Text)
+                    {
+                        Id = element.FindElement(By.TagName("input")).GetAttribute("value")
+                    }); //добавляем в лист групп по новому создаваемому объекту группы, попутно вызывая конструктор и записывая свойство в поле
                 }
 
             }
-
-            //List<GroupData> groups = new List<GroupData>();
-
-            //manager.Navigator.GoToGroupsPage();
-            //ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
-            //foreach (IWebElement element in elements)
-            //{
-            //    groups.Add(new GroupData(element.Text)); //добавляем в лист групп по новому создаваемому объекту группы
-            //}
 
             return new List<GroupData>(groupCaсhe);
         }
