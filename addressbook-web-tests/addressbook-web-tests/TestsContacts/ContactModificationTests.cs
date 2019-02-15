@@ -33,6 +33,7 @@ namespace WebAddressbookTests
             contact.Address2 = "Secondary address";
 
             List<ContactData> oldContacts = app.Contacts.GetContactsList();
+            ContactData oldData = oldContacts[0];
 
             app.Contacts
                 .CreateIfNoOneContactExists()
@@ -49,6 +50,17 @@ namespace WebAddressbookTests
             newContacts.Sort();
 
             Assert.AreEqual(oldContacts, newContacts);
+
+
+
+            foreach (ContactData inscription in newContacts)
+            {
+                if (inscription.Id == oldData.Id)
+                {
+                    Assert.IsTrue((contact.FirstName == inscription.FirstName)&&(contact.LastName == inscription.LastName));
+                }
+            }
+
         }
 
 

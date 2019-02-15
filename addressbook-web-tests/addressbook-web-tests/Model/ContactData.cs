@@ -84,343 +84,62 @@ namespace WebAddressbookTests
         }
 
 
-        public string Notes
-        {
-            get
-            {
-                return notes;
-            }
+        public string Notes { get; set; }
 
-            set
-            {
-                notes = value;
-            }
-        }
+        public string HomePhone2 { get; set; }
 
-        public string HomePhone2
-        {
-            get
-            {
-                return homePhone2;
-            }
 
-            set
-            {
-                homePhone2 = value;
-            }
-        }
+        public string Address2 { get; set; }
 
-        public string Address2
-        {
-            get
-            {
-                return address2;
-            }
 
-            set
-            {
-                address2 = value;
-            }
-        }
+        public string GroupName { get; set; }
 
-        public string GroupName
-        {
-            get
-            {
-                return groupName;
-            }
+        public string AYear { get; set; }
 
-            set
-            {
-                groupName = value;
-            }
-        }
+        public string AMonth { get; set; }
 
-        public string AYear
-        {
-            get
-            {
-                return aYear;
-            }
+        public string ADay { get; set; }
 
-            set
-            {
-                aYear = value;
-            }
-        }
+        public string BYear { get; set; }
 
-        public string AMonth
-        {
-            get
-            {
-                return aMonth;
-            }
+        public string BMonth { get; set; }
 
-            set
-            {
-                aMonth = value;
-            }
-        }
+        public string BDay { get; set; }
 
-        public string ADay
-        {
-            get
-            {
-                return aDay;
-            }
+        public string HomePage { get; set; }
 
-            set
-            {
-                aDay = value;
-            }
-        }
 
-        public string BYear
-        {
-            get
-            {
-                return bYear;
-            }
+        public string Email3 { get; set; }
 
-            set
-            {
-                bYear = value;
-            }
-        }
+        public string Email2 { get; set; }
 
-        public string BMonth
-        {
-            get
-            {
-                return bMonth;
-            }
+        public string Email1 { get; set; }
 
-            set
-            {
-                bMonth = value;
-            }
-        }
+        public string FaxPhone { get; set; }
 
-        public string BDay
-        {
-            get
-            {
-                return bDay;
-            }
+        public string WorkPhone { get; set; }
 
-            set
-            {
-                bDay = value;
-            }
-        }
+        public string MobilePhone { get; set; }
 
-        public string HomePage
-        {
-            get
-            {
-                return homePage;
-            }
+        public string HomePhone1 { get; set; }
 
-            set
-            {
-                homePage = value;
-            }
-        }
+        public string Address1 { get; set; }
 
-        public string Email3
-        {
-            get
-            {
-                return email3;
-            }
+        public string Company { get; set; }
 
-            set
-            {
-                email3 = value;
-            }
-        }
+        public string Title { get; set; }
 
-        public string Email2
-        {
-            get
-            {
-                return email2;
-            }
+        public string Photo { get; set; }
 
-            set
-            {
-                email2 = value;
-            }
-        }
+        public string NickName { get; set; }
 
-        public string Email1
-        {
-            get
-            {
-                return email1;
-            }
+        public string LastName { get; set; }
 
-            set
-            {
-                email1 = value;
-            }
-        }
+        public string MiddleName { get; set; }
 
-        public string FaxPhone
-        {
-            get
-            {
-                return faxPhone;
-            }
+        public string FirstName { get; set; }
 
-            set
-            {
-                faxPhone = value;
-            }
-        }
-
-        public string WorkPhone
-        {
-            get
-            {
-                return workPhone;
-            }
-
-            set
-            {
-                workPhone = value;
-            }
-        }
-
-        public string MobilePhone
-        {
-            get
-            {
-                return mobilePhone;
-            }
-
-            set
-            {
-                mobilePhone = value;
-            }
-        }
-
-        public string HomePhone1
-        {
-            get
-            {
-                return homePhone1;
-            }
-
-            set
-            {
-                homePhone1 = value;
-            }
-        }
-
-        public string Address1
-        {
-            get
-            {
-                return address1;
-            }
-
-            set
-            {
-                address1 = value;
-            }
-        }
-
-        public string Company
-        {
-            get
-            {
-                return company;
-            }
-
-            set
-            {
-                company = value;
-            }
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-
-            set
-            {
-                title = value;
-            }
-        }
-
-        public string Photo
-        {
-            get
-            {
-                return photo;
-            }
-
-            set
-            {
-                photo = value;
-            }
-        }
-
-        public string NickName
-        {
-            get
-            {
-                return nickName;
-            }
-
-            set
-            {
-                nickName = value;
-            }
-        }
-
-        public string LastName
-        {
-            get
-            {
-                return lastName;
-            }
-
-            set
-            {
-                lastName = value;
-            }
-        }
-
-        public string MiddleName
-        {
-            get
-            {
-                return middleName;
-            }
-
-            set
-            {
-                middleName = value;
-            }
-        }
-
-        public string FirstName
-        {
-            get
-            {
-                return firstName;
-            }
-
-            set
-            {
-                firstName = value;
-            }
-        }
+        public string Id { get; set; }
 
     }
 }

@@ -34,6 +34,7 @@ namespace WebAddressbookTests
             contact.BYear = "1982";
             contact.Address2 = "Secondary address";
 
+
             List<ContactData> oldContacts = app.Contacts.GetContactsList();
 
             app.Contacts.Create(contact);

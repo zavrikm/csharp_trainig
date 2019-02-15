@@ -105,9 +105,7 @@ namespace WebAddressbookTests
 
         public ContactHelper ChooseContactInTable(int index)
         {
-            //  index = index + 1;
                driver.FindElement(By.XPath("//table[@id='maintable']/tbody/tr[" + (index+2) + "]/td/input")).Click();
-  //          driver.FindElement(By.XPath("(//tr/td/input)[" + (index+1) + "]"));
             return this;
         }
 
@@ -155,25 +153,6 @@ namespace WebAddressbookTests
         public List<ContactData> GetContactsList()
         {
 
-            /*if (contactCache == null)*/ //1-я попытка
-                                      //{
-                                      //    contactCache = new List<ContactData>();
-
-                //    manager.Navigator.OpenDashboard();
-                //    ICollection<IWebElement> firstNames = driver.FindElements(By.XPath("//tr/td[3]"));
-
-                //    int counter = 0;
-
-                //    foreach (IWebElement element in firstNames)
-                //    {
-                //        contactCache.Add(new ContactData()); //добавляем в лист контактов по новому создаваемому объекту контакта
-                //        contactCache[counter].FirstName = element.Text;
-                //        contactCache[counter].LastName = driver.FindElement(By.XPath("(//tr/td[2])[" + (counter + 1) + "]")).Text;
-                //        counter++;
-                //    }
-
-                //}
-
 
                 if (contactCache == null) //вариант после 1-й попытки - исправить
                 {
@@ -187,8 +166,9 @@ namespace WebAddressbookTests
                     {
                         var cells = element.FindElements(By.TagName("td"));
 
-                        var item = new ContactData
-                        {
+                    var item = new ContactData
+                    {
+                            Id = cells[0].FindElement(By.TagName("input")).GetAttribute("Id"),
                             FirstName = cells[2].Text,
                             LastName = cells[1].Text
                         };
