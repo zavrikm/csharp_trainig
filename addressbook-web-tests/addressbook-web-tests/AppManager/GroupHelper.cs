@@ -149,10 +149,26 @@ namespace WebAddressbookTests
                 foreach (IWebElement element in elements)
                 {
                     
-                    groupCaсhe.Add(new GroupData(element.Text)
+                    groupCaсhe.Add(new GroupData(null)
                     {
                         Id = element.FindElement(By.TagName("input")).GetAttribute("value")
                     }); //добавляем в лист групп по новому создаваемому объекту группы, попутно вызывая конструктор и записывая свойство в поле
+                }
+
+                string allGroupNames = driver.FindElement(By.CssSelector("div#content form")).Text;
+                string[] parts = allGroupNames.Split('\n');
+                int shift = groupCaсhe.Count - parts.Length;
+                for (int i = 0; i < groupCaсhe.Count; i++)
+                {
+                    if (i < shift)
+                    {
+                        groupCaсhe[i].Name = "";
+                    }
+                    else
+                    {
+                        groupCaсhe[i].Name = parts[i - shift].Trim();
+                    }
+                    
                 }
 
             }
