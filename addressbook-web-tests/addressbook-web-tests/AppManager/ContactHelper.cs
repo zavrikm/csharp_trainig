@@ -20,7 +20,52 @@ namespace WebAddressbookTests
           
         }
 
+        public ContactData GetContactInformationFromTable(int index)
+        {
+            manager.Navigator.OpenHomePage();
+            IList<IWebElement> cells = driver.FindElements(By.Name("entry"))[index]
+                .FindElements(By.TagName("td"));
 
+            string lastName = cells[1].Text;
+            string firstName = cells[2].Text;
+            string address1 = cells[3].Text;
+
+            string allPhones = cells[5].Text;
+
+            return new ContactData()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Address1 = address1,
+                AllPhones = allPhones
+            };
+        }
+
+        public ContactData GetContactInformationFromForm(int index)
+        {
+            manager.Navigator.OpenHomePage();
+            ClickEditPencilButtonInString(index);
+            string firstName = driver.FindElement(By.Name("firstname")).GetAttribute("value");
+            string lastName = driver.FindElement(By.Name("lastname")).GetAttribute("value");
+            string address1 = driver.FindElement(By.Name("address")).Text;
+
+            //Console.WriteLine("From Form: \n");
+            string homePhone1 = driver.FindElement(By.Name("home")).GetAttribute("value");
+            
+            string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
+            string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+
+
+            return new ContactData()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Address1 = address1,
+                HomePhone1 = homePhone1,
+                MobilePhone = mobilePhone,
+                WorkPhone = workPhone
+            };
+        }
 
         public ContactHelper Create(ContactData contact)
         {

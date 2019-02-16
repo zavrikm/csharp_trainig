@@ -8,32 +8,7 @@ namespace WebAddressbookTests
 {
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
-        private string firstName = "";
-        private string middleName = "";
-        private string lastName = "";
-        private string nickName = "";
-        private string photo = "";
-        private string title = "";
-        private string company = "";
-        private string address1 = "";
-        private string homePhone1 = "";
-        private string mobilePhone = "";
-        private string workPhone = "";
-        private string faxPhone = "";
-        private string email1 = "";
-        private string email2 = "";
-        private string email3 = "";
-        private string homePage = "";
-        private string bDay;
-        private string bMonth = "";
-        private string bYear = "";
-        private string aDay = "";
-        private string aMonth = "";
-        private string aYear = "";
-        private string groupName = "";
-        private string address2 = "";
-        private string homePhone2 = "";
-        private string notes = "";
+        private string allPhones;
 
 
         public ContactData()
@@ -141,5 +116,35 @@ namespace WebAddressbookTests
 
         public string Id { get; set; }
 
+        public string AllPhones
+        {
+            get
+            {
+                if (allPhones != null)
+                {
+
+                    return allPhones;
+                }
+                else
+                {
+                    return (CleanUp(HomePhone1) + CleanUp(MobilePhone) + CleanUp(WorkPhone)).Trim();
+                }
+
+            }
+            set
+            {
+                allPhones = value;
+            }
+        }
+
+        private string CleanUp(string phone)
+        {
+            if (phone == null || phone == "")
+            {
+                return "";
+            }
+            return phone.Replace(" ", "").Replace("-", "").Replace("(", "").Replace(")","") + "\r\n";
+
+        }
     }
 }
