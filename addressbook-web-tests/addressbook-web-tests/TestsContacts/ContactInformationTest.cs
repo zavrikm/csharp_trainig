@@ -13,8 +13,14 @@ namespace WebAddressbookTests
         [Test]
         public void TestContactInformationGeneral()
         {
-            ContactData fromTable = app.Contacts.GetContactInformationFromTable(0);
-            ContactData fromForm = app.Contacts.GetContactInformationFromForm(0);
+            // генерируем случайный номер контакта
+            Random rnd = new Random();
+            int number = rnd.Next(0, app.Contacts.GetContactCount());
+            Console.WriteLine("Contact number = " + number);
+
+            //начинаем тест
+            ContactData fromTable = app.Contacts.GetContactInformationFromTable(number);
+            ContactData fromForm = app.Contacts.GetContactInformationFromForm(number);
 
             // verification
             Assert.AreEqual(fromTable, fromForm);
