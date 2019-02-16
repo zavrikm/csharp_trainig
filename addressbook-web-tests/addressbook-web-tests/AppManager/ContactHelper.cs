@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -239,6 +240,14 @@ namespace WebAddressbookTests
 
             return element.Count;
 
+        }
+
+        public int GetNumberOfSearchResults()
+        {
+            manager.Navigator.OpenDashboard();
+            string text = driver.FindElement(By.TagName("label")).Text;
+            Match m = new Regex(@"\d+").Match(text);
+            return Int32.Parse(m.Value);
         }
 
     }
