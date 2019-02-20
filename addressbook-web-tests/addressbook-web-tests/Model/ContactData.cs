@@ -161,7 +161,38 @@ namespace WebAddressbookTests
                 }
                 else
                 {
-                    return (Email1 + "\r\n" + Email2 + "\r\n" + Email3).Trim();
+                    allEmails = "";
+
+                    if (Email1 != "")
+                    {
+                        allEmails = Email1;
+                    }
+
+                    if (Email2 != "")
+                    {
+                        if (allEmails == "")
+                        {
+                            allEmails = Email2;
+                        }
+                        else
+                        {
+                            allEmails = allEmails + "\r\n" + Email2;
+                        }
+                    }
+
+                    if (Email3 != "")
+                    {
+                        if (allEmails == "")
+                        {
+                            allEmails = Email3;
+                        }
+                        else
+                        {
+                            allEmails = allEmails + "\r\n" + Email3;
+                        }
+                    }
+
+                    return allEmails.Trim();
                 }
             }
             set
@@ -171,7 +202,7 @@ namespace WebAddressbookTests
         }
 
 
-        public string AllInfoToString //************************** В РАБОТЕ ***************************************************************
+        public string AllInfoToString 
         {
             get
             {

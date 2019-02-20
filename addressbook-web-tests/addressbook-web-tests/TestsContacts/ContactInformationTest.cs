@@ -16,6 +16,7 @@ namespace WebAddressbookTests
             // генерируем случайный номер контакта
             Random rnd = new Random();
             int number = rnd.Next(0, app.Contacts.GetContactCount());
+            Console.WriteLine("number = {0}", number);
 
             //начинаем тест
             ContactData fromTable = app.Contacts.GetContactInformationFromTable(number);
