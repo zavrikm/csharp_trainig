@@ -60,7 +60,7 @@ namespace WebAddressbookTests
 
         public static string GenerateRandomPhone()
         {
-            return rnd.Next(10000000,9999999).ToString();
+            return rnd.Next(1000000,9999999).ToString();
         }
 
         public static string GenerateRandomEmail()
