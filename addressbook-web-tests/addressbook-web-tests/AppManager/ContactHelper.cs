@@ -181,19 +181,31 @@ namespace WebAddressbookTests
             Type(By.Name("middlename"), contact.MiddleName);
             Type(By.Name("lastname"), contact.LastName);
             Type(By.Name("nickname"), contact.NickName);
-            Type(By.Name("title"), contact.Title);
             Type(By.Name("company"), contact.Company);
+            Type(By.Name("title"), contact.Title);
             Type(By.Name("address"), contact.Address1);
+
             Type(By.Name("home"), contact.HomePhone1);
             Type(By.Name("mobile"), contact.MobilePhone);
             Type(By.Name("work"), contact.WorkPhone);
+            Type(By.Name("fax"), contact.FaxPhone);
+
             Type(By.Name("email"), contact.Email1);
+            Type(By.Name("email2"), contact.Email2);
+            Type(By.Name("email3"), contact.Email3);
+            Type(By.Name("homepage"), contact.HomePage);
 
             SelectBytextInDropDown(By.Name("bday"), contact.BDay);
             SelectBytextInDropDown(By.Name("bmonth"), contact.BMonth);
-
             Type(By.Name("byear"), contact.BYear);
+
+            SelectBytextInDropDown(By.Name("aday"), contact.ADay);
+            SelectBytextInDropDown(By.Name("amonth"), contact.AMonth);
+            Type(By.Name("ayear"), contact.AYear);
+
             Type(By.Name("address2"), contact.Address2);
+            Type(By.Name("phone2"), contact.HomePhone2);
+            Type(By.Name("notes"), contact.Notes);
 
             return this;
         }
