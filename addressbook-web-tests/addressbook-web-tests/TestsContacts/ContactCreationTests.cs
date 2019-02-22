@@ -15,13 +15,14 @@ namespace WebAddressbookTests
         {
             List<ContactData> contacts = new List<ContactData>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 7; i++)
             {
-                contacts.Add(new ContactData() {
+                contacts.Add(new ContactData(GenerateRandomString(25), GenerateRandomString(25))
 
-                    FirstName = GenerateRandomString(25),
+                {
+                   // FirstName = GenerateRandomString(25),
                     MiddleName = GenerateRandomString(25),
-                    LastName = GenerateRandomString(25),
+                  //  LastName = GenerateRandomString(25),
                     NickName = GenerateRandomString(15),
                     Company = GenerateRandomString(25),
                     Title = GenerateContactTitle(),
@@ -49,8 +50,7 @@ namespace WebAddressbookTests
                     Address2 = GenerateRandomString(50),
                     HomePhone2 = GenerateRandomPhone(),
                     Notes = GenerateRandomString(100)
-                }
-              );
+                });
 
                 contacts[i].BDay = GenerateRandomDay(GetMonthNumber(contacts[i].BMonth), contacts[i].BYear);
                 contacts[i].ADay = GenerateRandomDay(GetMonthNumber(contacts[i].AMonth), contacts[i].AYear);
@@ -64,26 +64,6 @@ namespace WebAddressbookTests
         [Test, TestCaseSource("RandomContactDataProvider")]
         public void ContactCreationTest(ContactData contact)
         {
-
-
-            //ContactData contact = new ContactData();
-            //contact.FirstName = "Vivian";
-            //contact.MiddleName = "Ann";
-            //contact.LastName = "Winter";
-            //contact.NickName = "vivianw";
-            //contact.Title = "Mrs";
-            //contact.Company = "Some company";
-            //contact.Address1 = "Some address";
-            //contact.HomePhone1 = "123456";
-            //contact.MobilePhone = "123456789";
-            //contact.WorkPhone = "456789";
-            //contact.Email1 = "user@domain.dn";
-            //contact.BDay = "15";
-            //contact.BMonth = "April";
-            //contact.BYear = "1982";
-            //contact.Address2 = "Secondary address";
-
-
             List<ContactData> oldContacts = app.Contacts.GetContactsList();
 
             app.Contacts.Create(contact);

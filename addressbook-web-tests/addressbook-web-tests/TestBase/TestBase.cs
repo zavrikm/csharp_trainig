@@ -106,7 +106,7 @@ namespace WebAddressbookTests
 
             if (month == 2)
             {
-                if (Int32.Parse(year) % 4 == 0 && Int32.Parse(year) % 100 != 0) // високосный год
+                if (Int32.Parse(year) % 4 == 0) // високосный год
                 {
                     day = rnd.Next(0, 29).ToString();
                 }

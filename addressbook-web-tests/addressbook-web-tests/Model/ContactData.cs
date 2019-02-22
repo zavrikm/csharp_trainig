@@ -18,6 +18,12 @@ namespace WebAddressbookTests
             // no required fields in addressbook
         }
 
+        public ContactData(string firestName, string lastName)
+        {
+            FirstName = firestName;
+            LastName = lastName;
+        }
+
 
         public bool Equals(ContactData other)
         {
