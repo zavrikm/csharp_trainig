@@ -15,6 +15,11 @@ namespace WebAddressbookTests
             Name = name;
         }
 
+        public GroupData() // constructor
+        {
+
+        }
+
         public bool Equals(GroupData other)
         {
             if (Object.ReferenceEquals(other, null)) //если other == null, вернуть false - стандартная проверка объектов
