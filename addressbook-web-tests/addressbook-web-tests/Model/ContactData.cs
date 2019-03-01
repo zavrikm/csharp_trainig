@@ -212,290 +212,290 @@ namespace WebAddressbookTests
         {
             get
             {
-                if (allInfoToString != null)
-                {
-                    return AllInfoToString;
-                }
-                else
-                {
-                    allInfoToString = "";
+                //    if (allInfoToString != null)
+                //    {
+                return AllInfoToString;
+                //    }
+                //    else
+                //    {
+                //        allInfoToString = "";
 
-                    if (FirstName != "")
-                    { allInfoToString = allInfoToString + FirstName; }
+                //        if (FirstName != "")
+                //        { allInfoToString = allInfoToString + FirstName; }
 
-                    if (MiddleName != "") //****************** MIddleName ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = MiddleName;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + " " + MiddleName;
-                        }
-                    }
+                //        if (MiddleName != "") //****************** MIddleName ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = MiddleName;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + " " + MiddleName;
+                //            }
+                //        }
 
-                    if (LastName != "") //****************** LastName ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = LastName;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + " " + LastName;
-                        }
-                    }
+                //        if (LastName != "") //****************** LastName ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = LastName;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + " " + LastName;
+                //            }
+                //        }
 
-                    if (NickName != "") //****************** NickName ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = NickName;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + NickName;
-                        }
-                    }
+                //        if (NickName != "") //****************** NickName ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = NickName;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + NickName;
+                //            }
+                //        }
 
-                    if (Title != "") //****************** Title ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Title;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Title;
-                        }
-                    }
+                //        if (Title != "") //****************** Title ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Title;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Title;
+                //            }
+                //        }
 
-                    if (Company != "") //****************** Company ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Company;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Company;
-                        }
-                    }
+                //        if (Company != "") //****************** Company ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Company;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Company;
+                //            }
+                //        }
 
 
-                    if (Address1 != "") //****************** Address1 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Address1;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Address1;
-                        }
-                    }
+                //        if (Address1 != "") //****************** Address1 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Address1;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Address1;
+                //            }
+                //        }
 
-                    //*********************** \r\n *****************************************
+                //        //*********************** \r\n *****************************************
 
-                    if ((allInfoToString != "") && (HomePhone1 != "" || MobilePhone != "" || WorkPhone != "" || FaxPhone != ""))
-                    {
-                        allInfoToString = allInfoToString + "\r\n";
-                    }
+                //        if ((allInfoToString != "") && (HomePhone1 != "" || MobilePhone != "" || WorkPhone != "" || FaxPhone != ""))
+                //        {
+                //            allInfoToString = allInfoToString + "\r\n";
+                //        }
 
-                    //************************************** PHONES ******************************************************************************
+                //        //************************************** PHONES ******************************************************************************
 
-                    if (HomePhone1 != "") //****************** HomePhone1 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = "H: " + HomePhone1;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\nH: " + HomePhone1;
-                        }
-                    }
+                //        if (HomePhone1 != "") //****************** HomePhone1 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = "H: " + HomePhone1;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\nH: " + HomePhone1;
+                //            }
+                //        }
 
-                    if (MobilePhone != "") //****************** MobilePhone ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = "M: " + MobilePhone;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\nM: " + MobilePhone;
-                        }
-                    }
+                //        if (MobilePhone != "") //****************** MobilePhone ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = "M: " + MobilePhone;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\nM: " + MobilePhone;
+                //            }
+                //        }
 
-                    if (WorkPhone != "") //****************** WorkPhone ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = "W: " + WorkPhone;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\nW: " + WorkPhone;
-                        }
-                    }
+                //        if (WorkPhone != "") //****************** WorkPhone ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = "W: " + WorkPhone;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\nW: " + WorkPhone;
+                //            }
+                //        }
 
-                    if (FaxPhone != "") //****************** FaxPhone ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = "F: " + FaxPhone;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\nF: " + FaxPhone;
-                        }
-                    }
+                //        if (FaxPhone != "") //****************** FaxPhone ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = "F: " + FaxPhone;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\nF: " + FaxPhone;
+                //            }
+                //        }
 
-                    //*********************** \r\n *****************************************
+                //        //*********************** \r\n *****************************************
 
-                    if ((allInfoToString != "") && (Email1 != "" || Email2 != "" || Email3 != "" || HomePage != ""))
-                    {
-                        allInfoToString = allInfoToString + "\r\n";
-                    }
+                //        if ((allInfoToString != "") && (Email1 != "" || Email2 != "" || Email3 != "" || HomePage != ""))
+                //        {
+                //            allInfoToString = allInfoToString + "\r\n";
+                //        }
 
-                    //********************************** Emails ***************************************************
+                //        //********************************** Emails ***************************************************
 
-                    if (Email1 != "") //****************** Email1 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Email1;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Email1;
-                        }
-                    }
+                //        if (Email1 != "") //****************** Email1 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Email1;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Email1;
+                //            }
+                //        }
 
-                    if (Email2 != "") //****************** Email2 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Email2;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Email2;
-                        }
-                    }
+                //        if (Email2 != "") //****************** Email2 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Email2;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Email2;
+                //            }
+                //        }
 
-                    if (Email3 != "") //****************** Email3 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Email3;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n" + Email3;
-                        }
-                    }
+                //        if (Email3 != "") //****************** Email3 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Email3;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n" + Email3;
+                //            }
+                //        }
 
-                    if (HomePage != "") //****************** Email1 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = "Homepage:\r\n" + HomePage;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\nHomepage:\r\n" + HomePage;
-                        }
-                    }
+                //        if (HomePage != "") //****************** Email1 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = "Homepage:\r\n" + HomePage;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\nHomepage:\r\n" + HomePage;
+                //            }
+                //        }
 
-                    //*********************** \r\n *****************************************
+                //        //*********************** \r\n *****************************************
 
-                    if ((allInfoToString != "") && (BDay != "0" || BMonth != "-" || BYear != "" || ADay != "0" || AMonth != "-" || AYear != ""))
-                    {
-                        allInfoToString = allInfoToString + "\r\n";
-                    }
+                //        if ((allInfoToString != "") && (BDay != "0" || BMonth != "-" || BYear != "" || ADay != "0" || AMonth != "-" || AYear != ""))
+                //        {
+                //            allInfoToString = allInfoToString + "\r\n";
+                //        }
 
-                    //***************************************************** DATES ******************************************************
+                //        //***************************************************** DATES ******************************************************
 
-                    if (BDay != "0" || BMonth != "-" || BYear != "")
-                    {
-                        allInfoToString = allInfoToString + "\r\nBirthday";
+                //        if (BDay != "0" || BMonth != "-" || BYear != "")
+                //        {
+                //            allInfoToString = allInfoToString + "\r\nBirthday";
 
-                        if (BDay != "0")
-                        {
-                            allInfoToString = allInfoToString + " " + BDay + ".";
-                        }
-                        if (BMonth != "-")
-                        {
-                            allInfoToString = allInfoToString + " " + BMonth;
-                        }
-                        if (BYear != "")
-                        {
-                            allInfoToString = allInfoToString + " " + BYear + " (" + Age(Int32.Parse(BYear), GetMonthNumber(BMonth), Int32.Parse(BDay)) + ")"; // AGE!!!!! 
-                        }
+                //            if (BDay != "0")
+                //            {
+                //                allInfoToString = allInfoToString + " " + BDay + ".";
+                //            }
+                //            if (BMonth != "-")
+                //            {
+                //                allInfoToString = allInfoToString + " " + BMonth;
+                //            }
+                //            if (BYear != "")
+                //            {
+                //                allInfoToString = allInfoToString + " " + BYear + " (" + Age(Int32.Parse(BYear), GetMonthNumber(BMonth), Int32.Parse(BDay)) + ")"; // AGE!!!!! 
+                //            }
 
-                    }
+                //        }
 
-                    if (ADay != "0" || AMonth != "-" || AYear != "")
-                    {
-                        allInfoToString = allInfoToString + "\r\nAnniversary";
+                //        if (ADay != "0" || AMonth != "-" || AYear != "")
+                //        {
+                //            allInfoToString = allInfoToString + "\r\nAnniversary";
 
-                        if (ADay != "0")
-                        {
-                            allInfoToString = allInfoToString + " " + ADay + ".";
-                        }
-                        if (AMonth != "-")
-                        {
-                            allInfoToString = allInfoToString + " " + AMonth;
-                        }
-                        if (AYear != "")
-                        {
-                            allInfoToString = allInfoToString + " " + AYear + " (" + Age(Int32.Parse(AYear), GetMonthNumber(AMonth), Int32.Parse(ADay)) + ")"; // AGE!!!!! 
-                        }
+                //            if (ADay != "0")
+                //            {
+                //                allInfoToString = allInfoToString + " " + ADay + ".";
+                //            }
+                //            if (AMonth != "-")
+                //            {
+                //                allInfoToString = allInfoToString + " " + AMonth;
+                //            }
+                //            if (AYear != "")
+                //            {
+                //                allInfoToString = allInfoToString + " " + AYear + " (" + Age(Int32.Parse(AYear), GetMonthNumber(AMonth), Int32.Parse(ADay)) + ")"; // AGE!!!!! 
+                //            }
 
-                    }
-                    //********************* SECONDARY *********************************************************************
+                //        }
+                //        //********************* SECONDARY *********************************************************************
 
-                    if (Address2 != "") //****************** Address2 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Address2;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n\r\n" + Address2;
-                        }
-                    }
+                //        if (Address2 != "") //****************** Address2 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Address2;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n\r\n" + Address2;
+                //            }
+                //        }
 
-                    if (HomePhone2 != "") //****************** HomePhone2 ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = HomePhone2;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n\r\nP: " + HomePhone2;
-                        }
-                    }
+                //        if (HomePhone2 != "") //****************** HomePhone2 ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = HomePhone2;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n\r\nP: " + HomePhone2;
+                //            }
+                //        }
 
-                    if (Notes != "") //****************** Notes ****************
-                    {
-                        if (allInfoToString == "")
-                        {
-                            allInfoToString = Notes;
-                        }
-                        else
-                        {
-                            allInfoToString = allInfoToString + "\r\n\r\n" + Notes;
-                        }
-                    }
+                //        if (Notes != "") //****************** Notes ****************
+                //        {
+                //            if (allInfoToString == "")
+                //            {
+                //                allInfoToString = Notes;
+                //            }
+                //            else
+                //            {
+                //                allInfoToString = allInfoToString + "\r\n\r\n" + Notes;
+                //            }
+                //        }
 
-                    return allInfoToString;
-                }
+                //        return allInfoToString;
+                //    }
             }
             set
             {
