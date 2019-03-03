@@ -119,35 +119,35 @@ namespace addressbook_test_data_generators
                 contacts.Add(new ContactData(TestBase.GenerateRandomString(25), TestBase.GenerateRandomString(25))
 
                 {
-                    //MiddleName = TestBase.GenerateRandomString(25),
-                    //NickName = TestBase.GenerateRandomString(15),
-                    //Company = TestBase.GenerateRandomString(25),
-                    //Title = TestBase.GenerateContactTitle(),
-                    //Address1 = TestBase.GenerateRandomString(50),
+                    MiddleName = TestBase.GenerateRandomString(25),
+                    NickName = TestBase.GenerateRandomString(15),
+                    Company = TestBase.GenerateRandomString(25),
+                    Title = TestBase.GenerateContactTitle(),
+                    Address1 = TestBase.GenerateRandomString(50),
 
-                    //HomePhone1 = TestBase.GenerateRandomPhone(),
-                    //MobilePhone = TestBase.GenerateRandomPhone(),
-                    //WorkPhone = TestBase.GenerateRandomPhone(),
-                    //FaxPhone = TestBase.GenerateRandomPhone(),
+                    HomePhone1 = TestBase.GenerateRandomPhone(),
+                    MobilePhone = TestBase.GenerateRandomPhone(),
+                    WorkPhone = TestBase.GenerateRandomPhone(),
+                    FaxPhone = TestBase.GenerateRandomPhone(),
 
-                    //Email1 = TestBase.GenerateRandomEmail(),
-                    //Email2 = TestBase.GenerateRandomEmail(),
-                    //Email3 = TestBase.GenerateRandomEmail(),
-                    //HomePage = TestBase.GenerateRandomeHomePage(),
+                    Email1 = TestBase.GenerateRandomEmail(),
+                    Email2 = TestBase.GenerateRandomEmail(),
+                    Email3 = TestBase.GenerateRandomEmail(),
+                    HomePage = TestBase.GenerateRandomeHomePage(),
 
-                    //BYear = TestBase.GenerateRandomYear(),
-                    //BMonth = TestBase.GenerateRandomMonth(),
+                    BYear = TestBase.GenerateRandomYear(),
+                    BMonth = TestBase.GenerateRandomMonth(),
 
-                    //AYear = TestBase.GenerateRandomYear(),
-                    //AMonth = TestBase.GenerateRandomMonth(),
+                    AYear = TestBase.GenerateRandomYear(),
+                    AMonth = TestBase.GenerateRandomMonth(),
 
-                    //Address2 = TestBase.GenerateRandomString(50),
-                    //HomePhone2 = TestBase.GenerateRandomPhone(),
-                    //Notes = TestBase.GenerateRandomString(100)
+                    Address2 = TestBase.GenerateRandomString(50),
+                    HomePhone2 = TestBase.GenerateRandomPhone(),
+                    Notes = TestBase.GenerateRandomString(100)
                 });
 
-                //  contacts[i].BDay = TestBase.GenerateRandomDay(TestBase.GetMonthNumber(contacts[i].BMonth), contacts[i].BYear);
-                //  contacts[i].ADay = TestBase.GenerateRandomDay(TestBase.GetMonthNumber(contacts[i].AMonth), contacts[i].AYear);
+                  contacts[i].BDay = TestBase.GenerateRandomDay(TestBase.GetMonthNumber(contacts[i].BMonth), contacts[i].BYear);
+                  contacts[i].ADay = TestBase.GenerateRandomDay(TestBase.GetMonthNumber(contacts[i].AMonth), contacts[i].AYear);
 
             }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 
 namespace WebAddressbookTests
@@ -157,6 +158,7 @@ namespace WebAddressbookTests
             return Regex.Replace(phone, "[ -()]", "") + "\r\n";
         }
 
+        [JsonIgnore]
         public string AllEmails
         {
             get
@@ -207,7 +209,7 @@ namespace WebAddressbookTests
             }
         }
 
-
+        [JsonIgnore]
         public string AllInfoToString 
         {
             get
