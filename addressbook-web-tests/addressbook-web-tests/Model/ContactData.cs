@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using LinqToDB.Mapping;
 
 namespace WebAddressbookTests
 {
+    [Table(Name = "addressbook")]
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
         private string allPhones;
@@ -67,62 +69,85 @@ namespace WebAddressbookTests
 
         }
 
-
+        [Column(Name = "notes")]
         public string Notes { get; set; }
 
+        [Column(Name = "phone2")]
         public string HomePhone2 { get; set; }
 
-
+        [Column(Name = "address2")]
         public string Address2 { get; set; }
 
-
+       // в базе нет колонки для названия группы
         public string GroupName { get; set; }
 
+        [Column(Name = "ayear")]
         public string AYear { get; set; }
 
+        [Column(Name = "amonth")]
         public string AMonth { get; set; }
 
+        [Column(Name = "aday")]
         public string ADay { get; set; }
 
+        [Column(Name = "byear")]
         public string BYear { get; set; }
 
+        [Column(Name = "bmonth")]
         public string BMonth { get; set; }
 
+        [Column(Name = "bday")]
         public string BDay { get; set; }
 
+        [Column(Name = "homepage")]
         public string HomePage { get; set; }
 
-
+        [Column(Name = "email3")]
         public string Email3 { get; set; }
 
+        [Column(Name = "email2")]
         public string Email2 { get; set; }
 
+        [Column(Name = "email")]
         public string Email1 { get; set; }
 
+        [Column(Name = "fax")]
         public string FaxPhone { get; set; }
 
+        [Column(Name = "work")]
         public string WorkPhone { get; set; }
 
+        [Column(Name = "mobile")]
         public string MobilePhone { get; set; }
 
+        [Column(Name = "home")]
         public string HomePhone1 { get; set; }
 
+        [Column(Name = "address")]
         public string Address1 { get; set; }
 
+        [Column(Name = "company")]
         public string Company { get; set; }
 
+        [Column(Name = "title")]
         public string Title { get; set; }
 
+        [Column(Name = "photo")]
         public string Photo { get; set; }
 
+        [Column(Name = "nickname")]
         public string NickName { get; set; }
 
+        [Column(Name = "lastname")]
         public string LastName { get; set; }
 
+        [Column(Name = "middlename")]
         public string MiddleName { get; set; }
 
+        [Column(Name = "firstname")]
         public string FirstName { get; set; }
 
+        [Column(Name = "id")]
         public string Id { get; set; }
 
         public string AllPhones
@@ -551,6 +576,13 @@ namespace WebAddressbookTests
             return 12;
         }
 
+        public static List<ContactData> GetAllContacts()
+        {
+             using (AddressbookDb db = new AddressbookDb())
+            {
+                return (from c in db.Contacts select c).ToList();
+            }
+        }
 
     }
 }

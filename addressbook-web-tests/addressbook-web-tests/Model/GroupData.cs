@@ -66,10 +66,10 @@ namespace WebAddressbookTests
         [Column(Name = "group_footer")]
         public string Footer { get; set; }
 
-        [Column(Name = "group_footer"), PrimaryKey, Identity]
+        [Column(Name = "group_id"), PrimaryKey, Identity]
         public string Id { get; set; }
 
-        public static List<GroupData> GetAll() //извлекам все данные по группам из БД
+        public static List<GroupData> GetAllGroups() //извлекам все данные по группам из БД
         {
             using (AddressbookDb db = new AddressbookDb())
             {

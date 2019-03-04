@@ -95,7 +95,20 @@ namespace WebAddressbookTests
             Assert.AreEqual(oldContacts, newContacts, "2-я проверка");
         }
 
- 
+        [Test]
+        public void TestDBConnectivityContacts()
+        {
+            DateTime start = DateTime.Now;
+            List<ContactData> fromUi = app.Contacts.GetContactsList();
+            DateTime end = DateTime.Now;
+            Console.WriteLine("Ui: " + end.Subtract(start));
+
+            start = DateTime.Now;
+            List<ContactData> fromDb = ContactData.GetAllContacts();
+            end = DateTime.Now;
+            Console.WriteLine("DB: " + end.Subtract(start));
+
+        }
 
 
 
@@ -107,6 +120,6 @@ namespace WebAddressbookTests
 
 
 
- 
+
     }
 }

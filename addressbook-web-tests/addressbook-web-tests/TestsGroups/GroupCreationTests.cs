@@ -94,7 +94,7 @@ namespace WebAddressbookTests
             Console.WriteLine(end.Subtract(start));
 
             start = DateTime.Now;
-            List<GroupData> fromDb = GroupData.GetAll();
+            List<GroupData> fromDb = GroupData.GetAllGroups();
             end = DateTime.Now;
             Console.WriteLine(end.Subtract(start));
 
