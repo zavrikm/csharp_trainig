@@ -70,15 +70,18 @@ namespace WebAddressbookTests
         }
 
 
-        [Test, TestCaseSource("GroupDataFromJsonFile")]
-        public void GroupCreationTest(GroupData group)
-        {           
-            List<GroupData> oldGroups = app.Groups.GetGroupList();
+        [Test, TestCaseSource("GroupDataFromCsvFile")]
+        public void GroupCreationTest(GroupData group) // 05.03.19 - тест переделан для задания №16
+        {
+
+            List<GroupData> oldGroups = GroupData.GetAllGroups(); //у групп не сохраняются копии с deprecated
+
             app.Groups.Create(group);
 
-            Assert.AreEqual(oldGroups.Count + 1,app.Groups.GetGroupCount()); //если количество групп не совпало - тест упадет здесь
+            Assert.AreEqual(oldGroups.Count + 1, GroupData.GetAllGroups().Count); //если количество групп не совпало - тест упадет здесь
 
-            List <GroupData> newGroups = app.Groups.GetGroupList();
+            List<GroupData> newGroups = GroupData.GetAllGroups();
+
             oldGroups.Add(group);
             oldGroups.Sort();
             newGroups.Sort();
