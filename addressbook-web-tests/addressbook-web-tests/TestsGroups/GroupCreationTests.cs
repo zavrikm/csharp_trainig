@@ -88,15 +88,11 @@ namespace WebAddressbookTests
         [Test]
         public void TestDBConnectivity()
         {
-            DateTime start = DateTime.Now;
-            List<GroupData> fromUi = app.Groups.GetGroupList();
-            DateTime end = DateTime.Now;
-            Console.WriteLine(end.Subtract(start));
-
-            start = DateTime.Now;
-            List<GroupData> fromDb = GroupData.GetAllGroups();
-            end = DateTime.Now;
-            Console.WriteLine(end.Subtract(start));
+            Console.WriteLine("Test is running");
+            foreach (ContactData contact in GroupData.GetAllGroups()[0].GetContactsByGroup())
+            {
+                Console.WriteLine(contact);
+            }
 
         }
 

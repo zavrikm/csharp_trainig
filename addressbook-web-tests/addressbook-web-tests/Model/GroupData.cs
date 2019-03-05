@@ -77,5 +77,15 @@ namespace WebAddressbookTests
             }
 
         }
+
+        public List<ContactData> GetContactsByGroup()
+        {
+            using (AddressbookDb db = new AddressbookDb())
+            {
+                return (from c in db.Contacts
+                         from gcr in db.GCR.Where(p => p.GroupId == Id && p.ContactId == c.Id) 
+                          select c).Distinct().ToList();
+            }
+        }
     }
 }
