@@ -148,6 +148,26 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public ContactHelper ModifyByContactId(int p, ContactData newData)
+        {
+            manager.Navigator.OpenDashboard();
+
+            ClickPencilEditButtonOnContactWithId(p);
+            FillContactCreationForm(newData);
+            SubmitContactMidification();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(x => x.FindElements(By.Id("maintable")).Count > 0);
+            manager.Navigator.OpenDashboard();
+
+            return this;
+        }
+
+        public ContactHelper ClickPencilEditButtonOnContactWithId(int id)
+        {
+            driver.FindElement(By.XPath("//input[@id = '" + id + "']/ancestor::tr//td[8]//img[@title = 'Edit']")).Click();
+
+            return this;
+        }
+
         public ContactHelper Remove(int p)
         {
             manager.Navigator.OpenDashboard();
@@ -272,6 +292,17 @@ namespace WebAddressbookTests
 
             return this;
         }
+
+        public ContactHelper CreateAContact()
+        {
+            ContactData aContact = new ContactData();
+            aContact.BMonth = "-";
+            aContact.AMonth = "-";
+            Create(aContact);
+
+            return this;
+        }
+
 
         private List<ContactData> contactCache = null; //поле для кеширования списка контактов
 

@@ -238,7 +238,7 @@ namespace WebAddressbookTests
         }
 
         [JsonIgnore]
-        public string AllInfoToString 
+        public string AllInfoToString
         {
             get
             {
