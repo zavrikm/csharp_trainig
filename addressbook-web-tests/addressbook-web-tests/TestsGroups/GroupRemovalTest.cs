@@ -53,7 +53,7 @@ namespace WebAddressbookTests
 
             app.Groups.RemoveGroupById(Int32.Parse(toBeRemoved.Id));
 
-                Assert.AreEqual(oldGroups.Count - 1, GroupData.GetAllGroups().Count);
+                Assert.AreEqual(oldGroups.Count - 1, GroupData.GetAllGroups().Count); //если количество групп не совпало - тест упадет здесь
 
             List<GroupData> newGroups = GroupData.GetAllGroups();
 

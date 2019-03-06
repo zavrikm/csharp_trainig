@@ -77,23 +77,45 @@ namespace WebAddressbookTests
                 );
         }
 
-        [Test, TestCaseSource("ContactDataFromJsonFile")]
-        public void ContactCreationTest(ContactData contact)
+        //[Test, TestCaseSource("ContactDataFromJsonFile")]
+        //public void ContactCreationTest(ContactData contact)
+        //{
+        //    List<ContactData> oldContacts = app.Contacts.GetContactsList();
+
+        //    app.Contacts.Create(contact);
+
+        //    Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount(), "1-я проверка");
+
+        //    List<ContactData> newContacts = app.Contacts.GetContactsList();
+
+        //    oldContacts.Add(contact);
+        //    oldContacts.Sort();
+        //    newContacts.Sort();
+
+        //    Assert.AreEqual(oldContacts, newContacts, "2-я проверка");
+        //}
+
+        [Test, TestCaseSource("ContactDataFromJsonFile")] // 06.03.19 - для ДЗ №16 с обращением к базам данных
+
+        public void ContactCreationTestWithDB(ContactData contact)
         {
-            List<ContactData> oldContacts = app.Contacts.GetContactsList();
+            List<ContactData> oldContacts = ContactData.GetAllContacts();
 
             app.Contacts.Create(contact);
 
-            Assert.AreEqual(oldContacts.Count + 1, app.Contacts.GetContactCount(), "1-я проверка");
+            Assert.AreEqual(oldContacts.Count + 1, ContactData.GetAllContacts().Count, "Количество контактов не совпадает");
 
-            List<ContactData> newContacts = app.Contacts.GetContactsList();
+            List<ContactData> newContacts = ContactData.GetAllContacts();
 
             oldContacts.Add(contact);
+
             oldContacts.Sort();
             newContacts.Sort();
 
-            Assert.AreEqual(oldContacts, newContacts, "2-я проверка");
+            Assert.AreEqual(oldContacts,newContacts,"Списки контактов не совпадают");
+
         }
+
 
         [Test]
         public void TestDBConnectivityContacts()

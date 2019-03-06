@@ -131,6 +131,7 @@ namespace WebAddressbookTests
             GoToContactCreationPage();
             FillContactCreationForm(contact);
             SubmitContactCreation();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(x => x.FindElements(By.Id("maintable")).Count > 0);
 
             return this;
         }
