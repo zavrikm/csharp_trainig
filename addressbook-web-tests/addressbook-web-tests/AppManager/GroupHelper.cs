@@ -36,16 +36,23 @@ namespace WebAddressbookTests
         {
             manager.Navigator.GoToGroupsPage();
 
-            SelectGroup(p);
+            //  SelectGroup(p);
+            SelectGroupByGroupId(p); 
             InitGroupModification();
             FillGroupForm(newData);
             SubmitGroupModification();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(d => d.FindElements(By.CssSelector("div.msgbox")).Count > 0);
             ReturnToGroupPage();
 
             return this;
         }
 
+        public GroupHelper SelectGroupByGroupId(int value) //находит группу на странице по ее group_id в базе
+        {
+            driver.FindElement(By.XPath("//input[@type = 'checkbox'][@value = '" + value + "']")).Click();
 
+            return this;
+        }
 
         public GroupHelper Remove(int p)
         {
