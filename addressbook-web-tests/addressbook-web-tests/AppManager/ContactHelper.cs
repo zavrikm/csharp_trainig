@@ -181,7 +181,17 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public ContactHelper RemoveByContactId(string id)
+        {
+            manager.Navigator.OpenDashboard();
+            SelectContact(id);
+            LookForAlert(true);
+            ClickDeleteContactButton();
+            ConfirmDeletindContactToAlert();
+            contactCache = null;
 
+            return this;
+        }
 
         public bool AContactExists()
         {

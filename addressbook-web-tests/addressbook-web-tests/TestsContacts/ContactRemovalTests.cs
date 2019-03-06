@@ -37,5 +37,37 @@ namespace WebAddressbookTests
 
         }
 
+        [Test]
+        public void ContactRemovalTestWithBD()
+        {
+            List<ContactData> oldContacts = ContactData.GetAllContacts();
+
+            if (oldContacts.Count == 0)
+            {
+                app.Contacts.CreateAContact();
+                oldContacts = ContactData.GetAllContacts();
+            }
+
+            ContactData toBeRemoved = oldContacts[0];
+
+            app.Contacts.RemoveByContactId(toBeRemoved.Id);
+
+            Assert.AreEqual(oldContacts.Count - 1, ContactData.GetAllContacts().Count, "Контакт не удалился");
+
+            List<ContactData> newContacts = ContactData.GetAllContacts();
+
+            oldContacts.RemoveAt(0);
+
+            oldContacts.Sort();
+            newContacts.Sort();
+            Assert.AreEqual(oldContacts,newContacts,"Списки контактов не совпадают");
+
+            foreach (ContactData contact in newContacts)
+            {
+                Assert.AreNotEqual(toBeRemoved.Id, contact.Id);
+            }
+
+        }
+
     }
 }
