@@ -66,8 +66,18 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public GroupHelper RemoveGroupById(int p)
+        {
+            manager.Navigator.GoToGroupsPage();
+            SelectGroupByGroupId(p);
+            RemoveGroup();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(d => d.FindElements(By.CssSelector("div.msgbox")).Count > 0);
+            ReturnToGroupsPage();
 
- 
+            return this;
+        }
+
+
 
 
         public GroupHelper InitGroupCreation()
@@ -140,6 +150,14 @@ namespace WebAddressbookTests
                 GroupData aGroup = new GroupData("qwe");
                 Create(aGroup);
             }
+
+            return this;
+        }
+
+        public GroupHelper CreateAGroup()
+        {
+            GroupData aGroup = new GroupData("qwe");
+            Create(aGroup);
 
             return this;
         }
