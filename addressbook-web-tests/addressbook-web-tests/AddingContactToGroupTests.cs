@@ -28,5 +28,34 @@ namespace WebAddressbookTests
             Assert.AreEqual(oldList,newList);
         }
 
+        [Test]
+
+        public void TestAddingContactToDifferentGroups() // 7.03.19 - для ДЗ №17 - добавление контакта в разные группы
+        {
+            List<GroupData> allGroups = GroupData.GetAllGroups();
+
+            while (allGroups.Count < 2)
+            {
+                app.Groups.CreateAGroup();
+                allGroups = GroupData.GetAllGroups();
+            }
+
+            List<GroupData> controlList = new List<GroupData>();
+            controlList.Add(allGroups[0]);
+            controlList.Add(allGroups[allGroups.Count - 1]);
+
+            ContactData contact = ContactData.GetAllContacts().Except(controlList[0].GetContactsByGroup()).Except(controlList[1].GetContactsByGroup()).First();
+
+            app.Contacts.AddContactToGroup(contact, controlList[0]);
+            app.Contacts.AddContactToGroup(contact, controlList[1]);
+
+            List<GroupData> testList = contact.GetGroupsByContact();
+
+            controlList.Sort();
+            testList.Sort();
+
+            Assert.AreEqual(controlList,testList);
+        }
+
     }
 }
