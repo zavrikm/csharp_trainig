@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
@@ -30,7 +31,7 @@ namespace WebAddressbookTests
 
         [Test]
 
-        public void TestAddingContactToDifferentGroups() // 7.03.19 - для ДЗ №17 - добавление контакта в разные группы
+        public void TestAddingContactToDifferentGroups() // 11.03.19 - для ДЗ №17 - добавление контакта в разные группы
         {
             List<GroupData> allGroups = GroupData.GetAllGroups();
 
@@ -54,7 +55,16 @@ namespace WebAddressbookTests
             controlList.Sort();
             testList.Sort();
 
-            Assert.AreEqual(controlList,testList);
+            Assert.AreEqual(controlList,testList); // проверка по БД
+
+            app.Navigator.OpenDashboard(); //проверка по UI
+            app.Contacts.OpenContactInfoById(contact.Id);
+
+            Assert.IsTrue(
+                app.Driver.FindElement(By.XPath("//a[contains(text(),'" + controlList[0].Name + "')]")).Displayed   
+                && app.Driver.FindElement(By.XPath("//a[contains(text(),'" + controlList[1].Name + "')]")).Displayed
+                );
+
         }
 
     }

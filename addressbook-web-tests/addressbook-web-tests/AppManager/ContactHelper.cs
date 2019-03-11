@@ -401,6 +401,12 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("add")).Click();
         }
 
+        public ContactHelper OpenContactInfoById(string id)
+        {
+            driver.FindElement(By.XPath("//input[@id='" + id + "']/ancestor::tr/td[7]")).Click();
+
+            return this;
+        }
 
     }
 }
