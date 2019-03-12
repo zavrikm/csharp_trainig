@@ -31,7 +31,7 @@ namespace WebAddressbookTests
 
         [Test]
 
-        public void TestAddingContactToDifferentGroups() // 11.03.19 - для ДЗ №17 - добавление контакта в разные группы
+        public void TestAddingContactToDifferentGroups() // 7,11.03.19 - для ДЗ №17 - добавление контакта в разные группы
         {
             List<GroupData> allGroups = GroupData.GetAllGroups();
 
