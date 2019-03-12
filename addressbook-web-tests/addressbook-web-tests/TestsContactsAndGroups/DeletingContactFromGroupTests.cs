@@ -10,7 +10,7 @@ namespace WebAddressbookTests
     public class DeletingContactFromGroupTests : AuthTestBase
     {
         [Test]
-        public void DeleteContactFromGroupTest() // Для ДЗ №17 - удаление контакта из группы
+        public void DeleteContactFromGroupTest() // Для ДЗ №17 - тест удаления контакта из группы
         {
             List<GroupData> groupList = GroupData.GetAllGroups(); //обеспечиваем наличие хотя бы одной группы
 
