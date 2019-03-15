@@ -35,7 +35,7 @@ namespace WebAddressbookTests
         {
             List<GroupData> allGroups = GroupData.GetAllGroups();
 
-            while (allGroups.Count < 2)
+            while (allGroups.Count < 2) // обеспечиваем наличие минимум 2-х групп
             {
                 app.Groups.CreateAGroup();
                 allGroups = GroupData.GetAllGroups();
@@ -44,6 +44,11 @@ namespace WebAddressbookTests
             List<GroupData> controlList = new List<GroupData>();
             controlList.Add(allGroups[0]);
             controlList.Add(allGroups[allGroups.Count - 1]);
+
+            if (ContactData.GetAllContacts().Except(controlList[0].GetContactsByGroup()).Except(controlList[1].GetContactsByGroup()).Count() < 1)
+            {
+                app.Contacts.CreateAContact(); //обеспечиваем наличие хотя бы 1 контакта, не входящего ни в одну группу
+            }
 
             ContactData contact = ContactData.GetAllContacts().Except(controlList[0].GetContactsByGroup()).Except(controlList[1].GetContactsByGroup()).First();
 
