@@ -18,7 +18,7 @@ namespace addressbook_tests_autoit
         {
             aux = new AutoItX3();
             aux.Run(@"D:\Software-testing\AddressBookPortable\AddressBook.exe", "", aux.SW_SHOW);
-          //  aux.Run(@"D:\Software-testing\AddressBookPortable\AddressBook.exe");
+            aux.WinSetState(WINTITLE, "", aux.SW_MAXIMIZE); //иначе окно не активируется
             aux.WinWait(WINTITLE);
             aux.WinActivate(WINTITLE);
             aux.WinWaitActive(WINTITLE);
